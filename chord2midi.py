@@ -3,6 +3,7 @@
 
 import pretty_midi
 from key2chord import key2chord
+from analize_logging import logger
 
 
 def chords2midi(chords_dict, file_name):
@@ -17,19 +18,19 @@ def chords2midi(chords_dict, file_name):
 
     # 解析したコードを単音のリストにバラす
     for i, chord in enumerate(chords_dict["chords_result"]["chords"]):
-        print(i, chord)
+        logger.info(i, chord)
         # Nの時はスキップ（ノートに書き込まない）
         if chord['chord'] == "N":
             continue
         chords_list = key2chord(chord)
-        print("chords list: {}".format(chords_list))
-        print("start time: {}".format(chord["time"]))
-        print("end time: {}".format(chords_dict["chords_result"]["chords"][i+1]["time"]-0.00000000000001))
+        logger.info("chords list: {}".format(chords_list))
+        logger.info("start time: {}".format(chord["time"]))
+        logger.info("end time: {}".format(chords_dict["chords_result"]["chords"][i+1]["time"]-0.00000000000001))
         # print("time: {}".format(float(chords_dict["chords_result"]["chords"][i+1]["time"])-float(chord["time"])))
         for note_name in chords_list:
             # コードの名前を数字に変換
             note_number = pretty_midi.note_name_to_number(note_name)
-            print("chord name {0}, chord num {1}".format(note_name, note_number))
+            logger.info("chord name {0}, chord num {1}".format(note_name, note_number))
             # velocityを定義する
             try:
                 note = pretty_midi.Note(
@@ -53,8 +54,8 @@ def chords2midi(chords_dict, file_name):
                 cello.notes.append(note)
     # PrettyMIDIオブジェクトに加える
     cello_c_chord.instruments.append(cello)
-    print(cello)
-    print(cello_c_chord)
+    logger.info(cello)
+    logger.info(cello_c_chord)
     # MIDIファイルとして書き出す
     cello_c_chord.write(str(file_name) + ".mid")
 

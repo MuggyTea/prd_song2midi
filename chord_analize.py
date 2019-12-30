@@ -4,6 +4,7 @@
 import requests as r
 
 import settings
+from analize_logging import logger
 
 """
 Sonic APIのコード解析APIを取得するところまで担当する
@@ -20,7 +21,6 @@ def set_param_to_api(endpoint, input_file_path):
     }
     input_file = open(input_file_path, 'rb')
     files = {'input_file': input_file}
-
     return url, datas, files
 
 
@@ -29,8 +29,11 @@ def detect_chords(input_file):
     endpoint = 'analyze/chords'  # コード解析APIのエンドポイント
     # 必要なパラメータをセットする
     url, datas, files = set_param_to_api(endpoint, input_file)
+    logger.info('set param: url: {0}, datas: {1}, file: {2}'.format(
+        url, datas, files))
     # Sonic APIに音声データを投げる
     res = r.post(url=url, data=datas, files=files, verify=False)
+    logger.info('analyzed result: {}'.format(res))
 
     return res.text
 

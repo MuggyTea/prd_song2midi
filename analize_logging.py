@@ -14,7 +14,7 @@ import os
 # loggerオブジェクトの宣言
 logger = getLogger('ChordAnalizeLog')
 # set logging Level
-logger.setLevel(logging.DEBUG)
+logger.setLevel(logging.INFO)
 
 """
 2. handlerの設定
@@ -50,4 +50,4 @@ logger.addHandler(file_handler)
 ログ出力テスト
 """
 
-logger.debug('test')
+logger.info('start youtube to midi program')
