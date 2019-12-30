@@ -1,0 +1,16 @@
+ffmpeg-python==0.1.17
+Flask==0.12.2
+gunicorn==19.9.0
+line-bot-sdk==1.5.0
+numpy==1.15.4
+oauthlib==2.0.2
+pydub==0.23.0
+requests==2.14.2
+SoundFile==0.10.2
+urllib3==1.21.1
+pytube==9.3.5
+boto3==1.9.71
+APScheduler==3.0.4
+awscli==1.9.11
+SQLAlchemy==1.0.4
+Flask-SQLAlchemy==2.3.2
