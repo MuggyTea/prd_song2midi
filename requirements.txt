@@ -5,7 +5,7 @@ line-bot-sdk==1.5.0
 numpy==1.15.4
 oauthlib==2.0.2
 pydub==0.23.0
-requests==2.14.2
+requests==2.20.0
 SoundFile==0.10.2
 urllib3==1.25.7
 boto3==1.9.71
