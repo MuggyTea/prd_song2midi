@@ -39,5 +39,6 @@ def detect_chords(input_file):
 
 
 if __name__ == "__main__":
-    a = detect_chords(input_file='tmp/yojyo21.mp3')
+    a = detect_chords(
+        input_file='tmp/catchTheStar.mp3_cqt.wav')
     print(a)

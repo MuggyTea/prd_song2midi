@@ -13,4 +13,7 @@ APScheduler==3.0.4
 awscli==1.9.11
 SQLAlchemy==1.0.4
 Flask-SQLAlchemy==2.3.2
+pytube==9.5.3
+matplotlib==3.1.2
+librosa==0.7.1
 git+https://github.com/giacaglia/pytube.git
